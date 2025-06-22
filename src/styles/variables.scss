@@ -1,0 +1,33 @@
+$blumine: (
+  50: #f2f8f9,
+  100: #ddebf0,
+  200: #93bdcd,
+  300: #609ab0,
+  400: #437b93,
+  500: #3b687f,
+  600: #355669,
+  700: #324958,
+  800: #1a2732
+);
+
+$chicago: (
+  50: #f6f6f6,
+  100: #e7e7e7,
+  200: #d1d1d1,
+  300: #b0b0b0,
+  400: #888888,
+  500: #6d6d6d,
+  600: #5d5d5d,
+  700: #555555,
+  800: #454545,
+  900: #3d3d3d,
+  950: #262626
+);
+
+@function blu($shade) {
+  @return map-get($blumine, $shade);
+}
+
+@function chic($shade) {
+  @return map-get($chicago, $shade);
+}
