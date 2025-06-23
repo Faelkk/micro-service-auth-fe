@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
-import { SigninComponent } from './pages/signin/signin.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
 import { RecoveryPasswordComponent } from './pages/recovery-password/recovery-password.component';
 import { VerifyTwoFaComponent } from './pages/verify-two-fa/verify-two-fa.component';
+import { SigninComponent } from './pages/signin/signin.component';
 
 export const routes: Routes = [
   {
@@ -19,7 +19,7 @@ export const routes: Routes = [
     component: ResetPasswordComponent,
   },
   {
-    path: 'reset-password',
+    path: 'recovery-password',
     component: RecoveryPasswordComponent,
   },
   {
