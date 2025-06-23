@@ -1,5 +1,6 @@
 <div class="input-wrapper">
   <label [for]="inputName">{{ label }}</label>
+
   <div class="input-content">
     <input
       [type]="type"
@@ -7,6 +8,7 @@
       [value]="value"
       (input)="onInput($event)"
     />
+
     <div class="icon" (click)="toggleIcon()">
       <ng-content></ng-content>
     </div>

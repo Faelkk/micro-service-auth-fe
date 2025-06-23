@@ -1,7 +1,6 @@
-import { Component, Input, forwardRef } from '@angular/core';
+import { Component, Input, forwardRef, OnInit } from '@angular/core';
 import {
   ControlValueAccessor,
-  FormGroup,
   NG_VALUE_ACCESSOR,
   ReactiveFormsModule,
 } from '@angular/forms';
@@ -22,17 +21,25 @@ type InputTypes = 'text' | 'email' | 'password';
   templateUrl: './primary-input.component.html',
   styleUrl: './primary-input.component.scss',
 })
-export class PrimaryInputComponent implements ControlValueAccessor {
+export class PrimaryInputComponent implements ControlValueAccessor, OnInit {
   @Input() type: InputTypes = 'text';
   @Input() placeholder: string = '';
   @Input() label: string = '';
   @Input() inputName: string = '';
+
+  initialType: InputTypes = 'text';
   value: string = '';
   onChange: any = () => {};
   onTouched: any = () => {};
 
+  ngOnInit() {
+    this.initialType = this.type;
+  }
+
   toggleIcon() {
-    this.type = this.type === 'password' ? 'text' : 'password';
+    if (this.initialType === 'password') {
+      this.type = this.type === 'password' ? 'text' : 'password';
+    }
   }
 
   onInput(event: Event) {

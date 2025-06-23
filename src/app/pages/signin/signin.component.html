@@ -1,8 +1,8 @@
 
 <app-default-login-layout
-    title="Login into your account"
-    primaryBtnText="Login agora"
-    secondaryBtnText="Crie sua contra"
+    title="Faça login na sua conta"
+    primaryBtnText="Fazer login"
+    secondaryBtnText="Criar sua conta"
     defaultImageLayout="/assets/svgs/Login-pana.svg"
     (submit)="submit()"
     (navigate)="navigate()"
@@ -26,9 +26,9 @@
   label="Sua senha"
 >
   @if (showPassword) {
-    <img src="/assets/svgs/password-on.svg" (click)="togglePassword()" />
+    <img src="/assets/svgs/password-on.svg" />
   } @else {
-    <img src="/assets/svgs/password-off.svg" (click)="togglePassword()" />
+    <img src="/assets/svgs/password-off.svg" />
   }
 </app-primary-input>
 

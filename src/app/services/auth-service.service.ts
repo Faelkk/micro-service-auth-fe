@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { SigninResponse } from '../types/auth-response.type';
+import { AuthResponseToken } from '../types/auth-response.type';
 import { tap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
@@ -9,9 +9,19 @@ import { HttpClient } from '@angular/common/http';
 export class AuthService {
   constructor(private httpClient: HttpClient) {}
 
-  login(name: string, password: string) {
+  login(email: string, password: string) {
     return this.httpClient
-      .post<SigninResponse>('/login', { name, password })
+      .post<AuthResponseToken>('/login', { email, password })
+      .pipe(
+        tap((value) => {
+          sessionStorage.setItem('auth-token', value.token);
+        })
+      );
+  }
+
+  signup(name: string, email: string, password: string) {
+    return this.httpClient
+      .post<AuthResponseToken>('/user', { name, email, password })
       .pipe(
         tap((value) => {
           sessionStorage.setItem('auth-token', value.token);
