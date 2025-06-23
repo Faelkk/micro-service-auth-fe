@@ -28,4 +28,8 @@ export class AuthService {
         })
       );
   }
+
+  recoveryPasswordForm(email: string) {
+    return this.httpClient.patch('/recover-password', { email });
+  }
 }

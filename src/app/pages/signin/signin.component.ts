@@ -3,7 +3,6 @@ import { DefaultLoginLayoutComponent } from '../../components/default-login-layo
 import {
   FormControl,
   FormGroup,
-  FormRecord,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
