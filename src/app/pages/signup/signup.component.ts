@@ -57,7 +57,7 @@ export class SignupComponent {
   }
 
   navigate() {
-    this.router.navigate(['signup']);
+    this.router.navigate(['signin']);
   }
 
   submit() {

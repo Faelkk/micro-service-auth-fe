@@ -32,4 +32,14 @@ export class AuthService {
   recoveryPasswordForm(email: string) {
     return this.httpClient.patch('/recover-password', { email });
   }
+
+  googleLogin(IdToken: string) {
+    return this.httpClient
+      .post<AuthResponseToken>('/login-google', { IdToken })
+      .pipe(
+        tap((value) => {
+          sessionStorage.setItem('auth-token', value.token);
+        })
+      );
+  }
 }

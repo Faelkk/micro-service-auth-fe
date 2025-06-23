@@ -3,10 +3,12 @@
     title="Faça login na sua conta"
     primaryBtnText="Fazer login"
     secondaryBtnText="Criar sua conta"
+      [showGoogleButton]="true"
     defaultImageLayout="/assets/svgs/Login-pana.svg"
     (submit)="submit()"
     (navigate)="navigate()"
     [disablePrimaryBtn]="!loginForm.valid"
+
 
 >
     <form [formGroup]="loginForm">
@@ -35,3 +37,6 @@
     <a href="recovery-password"><span> Esqueceu sua senha? </span></a>
     </form>
 </app-default-login-layout>
+
+<!--
+    (loginWithGoogle)="loginWithGoogle()" -->

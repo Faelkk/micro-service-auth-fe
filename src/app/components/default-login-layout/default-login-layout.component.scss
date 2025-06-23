@@ -86,6 +86,21 @@ main {
         padding: 12px 24px;
         cursor: pointer;
 
+        &.btn-google {
+          display: flex;
+          gap:1rem;
+          justify-content: center;
+          align-items: center;
+           border: 2px solid #000;
+        }
+
+        .google {
+          height: 24px;
+          width: 24px;
+          margin-bottom: 0;
+
+        }
+
         &:disabled {
           opacity: 0.8;
         }

@@ -46,6 +46,15 @@ export class SigninComponent {
     });
   }
 
+  loginWithGoogle(idToken: string) {
+    this.authService.googleLogin(idToken).subscribe({
+      next: () =>
+        this.toastService.success('Login com Google feito com sucesso!'),
+      error: () =>
+        this.toastService.error('Erro ao logar com Google, tente novamente.'),
+    });
+  }
+
   preventFocusLoss(event: MouseEvent) {
     event.preventDefault();
   }
