@@ -56,4 +56,16 @@ export class AuthService {
         })
       );
   }
+
+  isTokenValid(token: string) {
+    return this.httpClient.get<{ isValid: boolean }>('/validate-token', {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+  }
+
+  getUser(token: string) {
+    return this.httpClient.get('/user', {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+  }
 }
