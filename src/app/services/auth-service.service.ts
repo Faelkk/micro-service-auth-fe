@@ -39,6 +39,10 @@ export class AuthService {
     });
   }
 
+  verifyTwoFA(code: string) {
+    return this.httpClient.post('/verify-2fa', { code });
+  }
+
   googleLogin(IdToken: string) {
     return this.httpClient
       .post<AuthResponseToken>('/login-google', { IdToken })

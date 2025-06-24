@@ -1,1 +1,28 @@
-<p>verify-two-fa works!</p>
+<main class="verify-two-fa-password-container">
+    <section class="main-section">
+      <section class="left-side">
+          <h1 class="title">Verificação de dois fatores</h1>
+            <form [formGroup]="verifyTwoFaPasswordForm" class="verify-two-fa-password-form">
+         <app-primary-input
+      formControlName="code"
+      inputName="code"
+      type="text"
+      label="Código de verificação"
+      placeholder="Digite o código de 6 dígitos"
+     [maxlength]="6"
+  >
+            <img src="/assets/svgs/email.svg"/>
+
+        </app-primary-input>
+<a href="recovery/password"><span> Esqueceu sua senha? </span></a>
+
+    <button class="" (click)="submit()" [disabled]="verifyTwoFaPasswordForm.invalid">Verificar codigo</button>
+
+
+    </form>
+      </section>
+    <section class="right-side ">
+            <img src="/assets/svgs/Forgot-password-pana.svg"/>
+    </section>
+    </section>
+</main>

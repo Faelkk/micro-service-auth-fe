@@ -5,7 +5,7 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 
-type InputTypes = 'text' | 'email' | 'password';
+type InputTypes = 'text' | 'email' | 'password' | 'tel';
 
 @Component({
   selector: 'app-primary-input',
@@ -26,6 +26,7 @@ export class PrimaryInputComponent implements ControlValueAccessor, OnInit {
   @Input() placeholder: string = '';
   @Input() label: string = '';
   @Input() inputName: string = '';
+  @Input() maxlength?: number;
 
   initialType: InputTypes = 'text';
   value: string = '';
@@ -44,11 +45,12 @@ export class PrimaryInputComponent implements ControlValueAccessor, OnInit {
 
   onInput(event: Event) {
     const value = (event.target as HTMLInputElement).value;
+    this.value = value;
     this.onChange(value);
   }
 
   writeValue(value: any): void {
-    this.value = value;
+    this.value = value || '';
   }
 
   registerOnChange(fn: any): void {
@@ -59,5 +61,7 @@ export class PrimaryInputComponent implements ControlValueAccessor, OnInit {
     this.onTouched = fn;
   }
 
-  setDisabledState(isDisabled: boolean): void {}
+  setDisabledState(isDisabled: boolean): void {
+    // Pode implementar se quiser desabilitar o input
+  }
 }

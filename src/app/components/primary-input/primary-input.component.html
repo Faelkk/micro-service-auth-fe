@@ -3,10 +3,12 @@
 
   <div class="input-content">
     <input
+      [id]="inputName"
       [type]="type"
       [placeholder]="placeholder"
       [value]="value"
       (input)="onInput($event)"
+      [attr.maxlength]="maxlength"
     />
 
     <div class="icon" (click)="toggleIcon()">
