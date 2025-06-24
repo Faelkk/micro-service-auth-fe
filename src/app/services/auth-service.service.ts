@@ -33,6 +33,12 @@ export class AuthService {
     return this.httpClient.patch('/recover-password', { email });
   }
 
+  resetPasswordForm(password: string, token: string) {
+    return this.httpClient.patch(`/reset-password?token=${token}`, {
+      password,
+    });
+  }
+
   googleLogin(IdToken: string) {
     return this.httpClient
       .post<AuthResponseToken>('/login-google', { IdToken })
