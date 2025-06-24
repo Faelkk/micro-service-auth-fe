@@ -1,0 +1,27 @@
+
+
+<main class="enable-two-fa-password-container">
+    <section class="main-section">
+      <section class="left-side">
+          <h1 class="title">Ativar verificação de dois fatores</h1>
+            <form [formGroup]="userForm" class="enable-two-fa-password-form">
+     <app-primary-input
+      formControlName="email"
+      inputName="email"
+      type="email"
+      label="Email"
+      placeholder="johndoe@gmail.com"
+    >
+      <img src="/assets/svgs/email.svg" />
+
+        </app-primary-input>
+    <button class="" (click)="submit()" [disabled]="userForm.invalid">Ativar verificação</button>
+
+
+    </form>
+      </section>
+    <section class="right-side ">
+            <img src="assets/svgs/User-research-bro.svg"/>
+    </section>
+    </section>
+</main>

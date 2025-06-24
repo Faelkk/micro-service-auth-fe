@@ -43,6 +43,10 @@ export class AuthService {
     return this.httpClient.post('/verify-2fa', { code });
   }
 
+  enableTwoFa(email: string, isTwoFactorEnabled: boolean) {
+    return this.httpClient.patch('/enable-2fa', { email, isTwoFactorEnabled });
+  }
+
   googleLogin(IdToken: string) {
     return this.httpClient
       .post<AuthResponseToken>('/login-google', { IdToken })

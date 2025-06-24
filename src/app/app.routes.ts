@@ -4,6 +4,8 @@ import { ResetPasswordComponent } from './pages/reset-password/reset-password.co
 import { VerifyTwoFaComponent } from './pages/verify-two-fa/verify-two-fa.component';
 import { SigninComponent } from './pages/signin/signin.component';
 import { RecoveryPasswordComponent } from './pages/recovery-password/recovery-password.component';
+import { UserComponent } from './pages/user/user.component';
+import { EnableTwoFaComponent } from './pages/enable-two-fa/enable-two-fa.component';
 
 export const routes: Routes = [
   {
@@ -25,5 +27,13 @@ export const routes: Routes = [
   {
     path: 'verify-two-fa',
     component: VerifyTwoFaComponent,
+  },
+  {
+    path: 'user',
+    component: UserComponent,
+  },
+  {
+    path: 'enable-two-fa',
+    component: EnableTwoFaComponent,
   },
 ];
