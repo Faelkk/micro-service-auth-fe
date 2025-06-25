@@ -2,31 +2,30 @@
   <section class="form-section">
     <h2>{{ title }}</h2>
     <ng-content></ng-content>
+
     <div class="btn-wrapper">
-      <button
-        class="btn-primary"
-        (click)="submit()"
-        [disabled]="disablePrimaryBtn"
-      >
+      <button class="btn-primary" (click)="submit()" [disabled]="disablePrimaryBtn">
         {{ primaryBtnText }}
       </button>
+
       <div class="divider">
         <div></div>
-        <span>or</span>
+        <span>ou</span>
         <div></div>
       </div>
+
       <button class="btn-secondary" (click)="navigate()">
         {{ secondaryBtnText }}
       </button>
 
-      @if(showGoogleButton) {
-      <button class="btn-google" (click)="loginWithGoogle()">
-        <img src="/assets/svgs/google.svg" class="google" alt="Google" />
-        Entrar com Google
-      </button>
+      @if (showGoogleButton) {
+  <div class="btn-wrapper">
+  <div #googleButtonDiv class="google-btn-container"></div>
+</div>
       }
     </div>
   </section>
+
   <section class="main-section">
     <h1>Bem vindo ao Micro-service-Auth!</h1>
     <img [src]="defaultImageLayout" />

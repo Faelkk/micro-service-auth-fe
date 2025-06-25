@@ -86,7 +86,7 @@ main {
         padding: 12px 24px;
         cursor: pointer;
 
-        &.btn-google {
+        &.btn-googleButton {
           display: flex;
           gap:1rem;
           justify-content: center;
@@ -118,3 +118,8 @@ main {
     }
   }
 }
+
+.google-btn-container {
+  width: 100% !important;;
+}
+

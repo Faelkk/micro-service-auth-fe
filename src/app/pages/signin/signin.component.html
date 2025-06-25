@@ -6,6 +6,7 @@
   defaultImageLayout="/assets/svgs/Login-pana.svg"
   (submit)="submit()"
   (navigate)="navigate()"
+  (onLoginWithGoogle)="handleGoogleResponse($event)"
   [disablePrimaryBtn]="!loginForm.valid"
 >
   <form [formGroup]="loginForm">
@@ -18,8 +19,8 @@
     >
       <img src="/assets/svgs/email.svg" />
     </app-primary-input>
+
     <app-primary-input
-      app-primary-input
       formControlName="password"
       inputName="password"
       [type]="showPassword ? 'text' : 'password'"
@@ -32,9 +33,6 @@
       }
     </app-primary-input>
 
-    <a href="recovery-password"><span> Esqueceu sua senha? </span></a>
+    <a href="recovery-password"><span>Esqueceu sua senha?</span></a>
   </form>
 </app-default-login-layout>
-
-<!--
-    (loginWithGoogle)="loginWithGoogle()" -->

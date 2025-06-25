@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { DefaultLoginLayoutComponent } from '../../components/default-login-layout/default-login-layout.component';
 import {
   FormControl,
@@ -10,6 +10,8 @@ import { PrimaryInputComponent } from '../../components/primary-input/primary-in
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../../services/auth-service.service';
+
+declare const google: any; // Declaração para evitar erro de tipagem do Google Identity
 
 interface LoginForm {
   email: FormControl;
@@ -28,7 +30,7 @@ interface LoginForm {
   templateUrl: './signin.component.html',
   styleUrl: './signin.component.scss',
 })
-export class SigninComponent {
+export class SigninComponent implements OnInit {
   loginForm!: FormGroup<LoginForm>;
   showPassword = false;
 
@@ -46,10 +48,23 @@ export class SigninComponent {
     });
   }
 
+  ngOnInit(): void {}
+
+  handleGoogleResponse(response: any) {
+    const idToken = response.credential;
+    console.log('caiu', idToken);
+
+    this.loginWithGoogle(idToken);
+  }
+
   loginWithGoogle(idToken: string) {
+    console.log(idToken);
+
     this.authService.googleLogin(idToken).subscribe({
-      next: () =>
-        this.toastService.success('Login com Google feito com sucesso!'),
+      next: () => {
+        this.toastService.success('Login com Google feito com sucesso!');
+        this.router.navigate(['user']);
+      },
       error: () =>
         this.toastService.error('Erro ao logar com Google, tente novamente.'),
     });
@@ -81,7 +96,7 @@ export class SigninComponent {
         },
         error: () => {
           this.toastService.error(
-            'Erro inesperado! Tente novamente mais tarde'
+            'Erro inesperado! Tente novamente mais tarde.'
           );
         },
       });
