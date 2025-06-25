@@ -10,13 +10,7 @@ export class AuthService {
   constructor(private httpClient: HttpClient) {}
 
   login(email: string, password: string) {
-    return this.httpClient
-      .post<AuthResponseToken>('/login', { email, password })
-      .pipe(
-        tap((value) => {
-          localStorage.setItem('auth-token', value.token);
-        })
-      );
+    return this.httpClient.post<any>('/login', { email, password });
   }
 
   signup(name: string, email: string, password: string) {
@@ -39,15 +33,24 @@ export class AuthService {
     });
   }
 
-  verifyTwoFA(code: string) {
-    return this.httpClient.post('/login/verify-2fa', { code });
+  verifyTwoFA(code: string, emaiL: string) {
+    return this.httpClient
+      .post<AuthResponseToken>('/login/verify-2fa', { code, emaiL })
+      .pipe(
+        tap((value) => {
+          localStorage.setItem('auth-token', value.token);
+        })
+      );
   }
 
   enableTwoFa(email: string, isTwoFactorEnabled: boolean) {
-    return this.httpClient.patch('/login/enable-2fa', {
-      email,
-      isTwoFactorEnabled,
-    });
+    const token = localStorage.getItem('auth-token') || '';
+
+    return this.httpClient.patch(
+      '/login/enable-2fa',
+      { email, isTwoFactorEnabled },
+      { headers: { Authorization: `Bearer ${token}` } }
+    );
   }
 
   googleLogin(IdToken: string) {

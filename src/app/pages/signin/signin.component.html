@@ -4,8 +4,8 @@
   secondaryBtnText="Criar sua conta"
   [showGoogleButton]="true"
   defaultImageLayout="/assets/svgs/Login-pana.svg"
-  (submit)="submit()"
-  (navigate)="navigate()"
+  (onSubmit)="submit()"
+  (onNavigate)="navigate()"
   (onLoginWithGoogle)="handleGoogleResponse($event)"
   [disablePrimaryBtn]="!loginForm.valid"
 >

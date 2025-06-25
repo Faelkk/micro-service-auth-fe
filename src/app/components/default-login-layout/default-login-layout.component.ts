@@ -43,7 +43,6 @@ export class DefaultLoginLayoutComponent implements AfterViewInit {
       google.accounts.id.renderButton(this.googleButtonDiv.nativeElement, {
         theme: 'outline',
         size: 'large',
-        width: '100%',
       });
     }
   }

@@ -87,12 +87,26 @@ export class SigninComponent implements OnInit {
       return;
     }
 
+    console.log('caiu no click do submit');
+
     this.authService
       .login(this.loginForm.value.email, this.loginForm.value.password)
       .subscribe({
-        next: () => {
-          this.toastService.success('Login feito com sucesso!');
-          this.router.navigate(['user']);
+        next: (response) => {
+          if (response.token) {
+            localStorage.setItem('auth-token', response.token);
+            this.toastService.success('Login feito com sucesso!');
+            this.router.navigate(['user']);
+          } else if (response.message?.includes('dois fatores')) {
+            this.toastService.info(
+              'Código de verificação enviado para seu e-mail.'
+            );
+            this.router.navigate(['verify-two-fa'], {
+              queryParams: { email: response.email },
+            });
+          } else {
+            this.toastService.error('Resposta inesperada do servidor.');
+          }
         },
         error: () => {
           this.toastService.error(

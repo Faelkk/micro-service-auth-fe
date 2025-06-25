@@ -4,8 +4,8 @@
     primaryBtnText="Criar conta"
     secondaryBtnText="Fazer login"
     defaultImageLayout="/assets/svgs/Mobile-login-pana.svg"
-    (submit)="submit()"
-    (navigate)="navigate()"
+    (onSubmit)="submit()"
+    (onNavigate)="navigate()"
     [disablePrimaryBtn]="!signupForm.valid"
 
 >

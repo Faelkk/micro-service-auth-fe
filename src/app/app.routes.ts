@@ -36,6 +36,6 @@ export const routes: Routes = [
   {
     path: 'enable-two-fa',
     component: EnableTwoFaComponent,
-    canActivate: [NoAuthGuard],
+    canActivate: [AuthGuard],
   },
 ];
