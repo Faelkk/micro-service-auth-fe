@@ -3,9 +3,22 @@
     <section class="left-side">
       <h1 class="title">Bem vindo a pagina de usuario</h1>
       <div class="user-div">
-          <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula, sapien vel tempor eleifend, nunc erat laoreet arcu, vitae facilisis ligula eros ac elit.
-      </p>
+        <p class="text-lorem">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+          vehicula, sapien vel tempor eleifend, nunc erat laoreet arcu, vitae
+          facilisis ligula eros ac elit.
+        </p>
+
+        <p class="user-info-text">
+          Nome: <span class="span-user">{{ userData.name }}</span>
+        </p>
+        <p class="user-info-text">
+          Email: <span class="span-user">{{ userData.email }}</span>
+        </p>
+        <p class="user-info-text">
+          Cargo: <span class="span-user">{{ userData.role }}</span>
+        </p>
+
         <button class="" (click)="logout()">Encerrar sessão</button>
       </div>
     </section>

@@ -1,59 +1,70 @@
-# AuthFe
+# Micro-Service-Auth-Fe
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.15.
+O Micro-Service-Auth-Fe é a interface web do sistema de autenticação, desenvolvida em Angular. Esse frontend é responsável por gerenciar as interações do usuário com o sistema, oferecendo telas para login, cadastro e recuperação de senha, além de comunicação com o serviço de autenticação via APIs RESTful.
 
-## Development server
+## 🎨 Interface da Aplicação
 
-To start a local development server, run:
+Abaixo algumas telas principais da aplicação:
 
-```bash
-ng serve
-```
+### Tela de Login
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+![Tela de Login](/src/assets/docs/login.png)
 
-## Code scaffolding
+### Tela de Cadastro
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+![Tela de Cadastro](/src/assets/docs/create.png)
 
-```bash
-ng generate component component-name
-```
+### Tela de Recuperar senha
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+![Tela de Cadastro](/src/assets/docs/recovery-password.png)
 
-```bash
-ng generate --help
-```
+### Tela de Resetar senha
 
-## Building
+![Tela de Cadastro](/src/assets/docs/reset-password.png)
 
-To build the project run:
+### Tela de Usuario
 
-```bash
-ng build
-```
+![Tela de Cadastro](/src/assets/docs/reset-password.png)
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## 🛠️ Tecnologias Utilizadas
 
-## Running unit tests
+- [Angular 19](https://angular.dev/overview)
+- [TypeScript](https://www.typescriptlang.org/)
+- [RxJS](https://angular.dev/tools/cli)
+- [Angular CLI](https://www.rabbitmq.com/)
+- [SCSS](https://sass-lang.com/)
+- [ngx-toastr](https://www.npmjs.com/package/ngx-toastr)
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+🔋 **Controle de versão e deploy**
 
-```bash
-ng test
-```
+- [Git](https://git-scm.com)
 
-## Running end-to-end tests
+🚀 **Como Rodar o Projeto**
 
-For end-to-end (e2e) testing, run:
+Para rodar o projeto em seu ambiente local, siga os passos abaixo:
 
-```bash
-ng e2e
-```
+1.  Clonar o Repositório
+    Primeiramente, clone o repositório do GitHub para sua máquina local:
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+        $ git clone https://github.com/Faelkk/micro-service-auth-fe
 
-## Additional Resources
+2.  Instalar as Dependências
+    Acesse o diretório do projeto e instale as dependências:
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+        $ cd micro-service-auth-fe
+
+        $ npm install
+
+3.  Rodar o Projeto
+    Finalmente, rode o projeto com o comando:
+
+        $ npm run start
+
+🤝 **Como Contribuir?**
+
+- ⭐ Deixe uma estrela no repositório.
+- 🔗 Me siga aqui no GitHub.
+- 👥 Conecte-se comigo no LinkedIn e faça parte da minha rede profissional.
+
+👨‍💻**Autor**
+Desenvolvido por [Rafael Achtenberg](linkedin.com/in/rafael-achtenberg-7a4b12284/).

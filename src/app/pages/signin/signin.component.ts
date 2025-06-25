@@ -52,14 +52,11 @@ export class SigninComponent implements OnInit {
 
   handleGoogleResponse(response: any) {
     const idToken = response.credential;
-    console.log('caiu', idToken);
 
     this.loginWithGoogle(idToken);
   }
 
   loginWithGoogle(idToken: string) {
-    console.log(idToken);
-
     this.authService.googleLogin(idToken).subscribe({
       next: () => {
         this.toastService.success('Login com Google feito com sucesso!');
@@ -86,8 +83,6 @@ export class SigninComponent implements OnInit {
     if (this.loginForm.invalid) {
       return;
     }
-
-    console.log('caiu no click do submit');
 
     this.authService
       .login(this.loginForm.value.email, this.loginForm.value.password)
