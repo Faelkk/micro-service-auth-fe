@@ -17,7 +17,7 @@ export class UserComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    const token = sessionStorage.getItem('auth-token');
+    const token = localStorage.getItem('auth-token');
 
     if (!token) {
       this.logout();
@@ -31,7 +31,7 @@ export class UserComponent implements OnInit {
   }
 
   logout() {
-    sessionStorage.removeItem('auth-token');
+    localStorage.removeItem('auth-token');
     this.router.navigate(['/signin']);
   }
 }

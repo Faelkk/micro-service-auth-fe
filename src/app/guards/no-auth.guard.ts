@@ -11,7 +11,7 @@ export class NoAuthGuard implements CanActivate {
   constructor(private router: Router, private authService: AuthService) {}
 
   canActivate(): Observable<boolean> {
-    const token = sessionStorage.getItem('auth-token');
+    const token = localStorage.getItem('auth-token');
 
     if (!token) {
       return of(true);
@@ -26,7 +26,7 @@ export class NoAuthGuard implements CanActivate {
           return true;
         }
       }),
-      catchError(() => {
+      catchError((err) => {
         return of(true);
       })
     );

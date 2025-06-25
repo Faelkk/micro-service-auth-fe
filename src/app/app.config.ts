@@ -11,6 +11,8 @@ import {
 } from '@angular/common/http';
 import { ApiInterceptor } from './interceptors/api.interceptor';
 
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
@@ -18,6 +20,10 @@ export const appConfig: ApplicationConfig = {
     provideToastr(),
     provideAnimations(),
     provideHttpClient(withFetch(), withInterceptorsFromDi()),
-    ApiInterceptor,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ApiInterceptor,
+      multi: true,
+    },
   ],
 };

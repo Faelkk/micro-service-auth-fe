@@ -14,7 +14,7 @@ export class AuthService {
       .post<AuthResponseToken>('/login', { email, password })
       .pipe(
         tap((value) => {
-          sessionStorage.setItem('auth-token', value.token);
+          localStorage.setItem('auth-token', value.token);
         })
       );
   }
@@ -24,47 +24,50 @@ export class AuthService {
       .post<AuthResponseToken>('/user', { name, email, password })
       .pipe(
         tap((value) => {
-          sessionStorage.setItem('auth-token', value.token);
+          localStorage.setItem('auth-token', value.token);
         })
       );
   }
 
   recoveryPasswordForm(email: string) {
-    return this.httpClient.patch('/recover-password', { email });
+    return this.httpClient.patch('/user/recover-password', { email });
   }
 
   resetPasswordForm(password: string, token: string) {
-    return this.httpClient.patch(`/reset-password?token=${token}`, {
+    return this.httpClient.patch(`/user/reset-password?token=${token}`, {
       password,
     });
   }
 
   verifyTwoFA(code: string) {
-    return this.httpClient.post('/verify-2fa', { code });
+    return this.httpClient.post('/login/verify-2fa', { code });
   }
 
   enableTwoFa(email: string, isTwoFactorEnabled: boolean) {
-    return this.httpClient.patch('/enable-2fa', { email, isTwoFactorEnabled });
+    return this.httpClient.patch('/login/enable-2fa', {
+      email,
+      isTwoFactorEnabled,
+    });
   }
 
   googleLogin(IdToken: string) {
     return this.httpClient
-      .post<AuthResponseToken>('/login-google', { IdToken })
+      .post<AuthResponseToken>('/login/login-google', { IdToken })
       .pipe(
         tap((value) => {
-          sessionStorage.setItem('auth-token', value.token);
+          localStorage.setItem('auth-token', value.token);
         })
       );
   }
 
   isTokenValid(token: string) {
-    return this.httpClient.get<{ isValid: boolean }>('/validate-token', {
+    return this.httpClient.get<{ isValid: boolean }>('/user/validate-token', {
       headers: { Authorization: `Bearer ${token}` },
     });
   }
 
   getUser(token: string) {
-    return this.httpClient.get('/user', {
+    return this.httpClient.get('/user/get-user-by-token', {
       headers: { Authorization: `Bearer ${token}` },
     });
   }
